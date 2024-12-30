@@ -17,9 +17,8 @@ jobs:
         with:
           python-version: 3.9
           cache: 'pip'
-      - name: Install dependencies
+      - name: Install dependencies pyfiglet
         run: |
-          pip install pyfiglet
           import pyfiglet
-            ascii_art = pyfiglet.figlet_format("Happy New Year")
-            print(ascii_art)
+          ascii_art = pyfiglet.figlet_format("Happy New Year")
+          print(ascii_art)
