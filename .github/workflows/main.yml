@@ -34,4 +34,4 @@ jobs:
           pip install -r requirements.txt
       - name: Generate ASCII Art
         run: |
-          python -c "import pyfiglet; ascii_art = pyfiglet.figlet_format('Happy New Year'); print(ascii_art)"
+          python welcome.py
