@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-22.04, windows-latest]
+        os: [ubuntu-22.04, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python
@@ -24,8 +24,12 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           pip install -r requirements.txt
-      - name: Install dependencies on Ubuntu
+      - name: Install dependencies on windows
         if: runner.os == 'windows'
+        run: |
+          pip install -r requirements.txt
+      - name: Install dependencies on macos
+        if: runner.os == 'macos'
         run: |
           pip install -r requirements.txt
       - name: Generate ASCII Art
