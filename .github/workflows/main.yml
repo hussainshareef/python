@@ -1,4 +1,4 @@
-name:Deploy-python
+name: Deploy-python
 
 on:
   push:
