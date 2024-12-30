@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch:
+jobs:
+  my_job:
+    name: Running on python 
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: ./
+        with:
+          python-version: 3.9
+          cache: 'pip'
+      - name: Install dependencies
+        run: |
+          pip install pyfiglet
+          import pyfiglet
+            ascii_art = pyfiglet.figlet_format("Happy New Year")
+            print(ascii_art)
